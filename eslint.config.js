@@ -1,16 +1,17 @@
-import eslint from "@eslint/js";
+import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
-import tseslint from "typescript-eslint";
+import tsEslint from "typescript-eslint";
 
-export default [
-  eslint.configs.recommended,
-  ...{
-    ...tseslint.configs.recommended,
-    ignores: ["dist/*"],
-  },
-  eslintConfigPrettier,
+/**
+ * @type {import("eslint").Linter.Config[]}
+ */
+export const config = [
+  js.configs.recommended,
+  tsEslint.configs.recommended,
   {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     rules: {
+      "turbo/no-undeclared-env-vars": "warn",
       "no-alert": "warn",
       "no-console": "warn",
       "no-constant-condition": "error",
@@ -35,6 +36,9 @@ export default [
       "no-multiple-empty-lines": ["error", { max: 2, maxEOF: 1 }],
       quotes: ["error", "double", { avoidEscape: true }],
     },
-    ignores: ["dist/*"],
   },
+  {
+    ignores: ["**/dist/**"],
+  },
+  eslintConfigPrettier,
 ];

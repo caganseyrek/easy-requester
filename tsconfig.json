@@ -22,11 +22,8 @@
     "declarationMap": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "rootDir": "src",
-    "baseUrl": "src",
-    "paths": { "@/*": ["./*"] },
     "outDir": "dist"
   },
-  "include": ["src/**/*"],
+  "include": ["easy-requester.ts"],
   "exclude": ["node_modules"]
 }
