@@ -1,13 +1,11 @@
 import js from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier";
-import tsEslint from "typescript-eslint";
 
 /**
  * @type {import("eslint").Linter.Config[]}
  */
 export const config = [
   js.configs.recommended,
-  tsEslint.configs.recommended,
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     rules: {
